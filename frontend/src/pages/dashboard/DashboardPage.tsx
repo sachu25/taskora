@@ -48,13 +48,13 @@ export const DashboardPage: React.FC = () => {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header Banner */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 bg-gradient-to-r from-slate-900 via-indigo-950/40 to-slate-900 border border-slate-800 rounded-2xl shadow-lg">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 bg-slate-900 border border-slate-800 rounded-2xl shadow-lg">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="text-xs uppercase font-bold tracking-wider text-indigo-400">Workspace Dashboard</span>
             <Badge variant="primary">{data.user_role?.replace('_', ' ')}</Badge>
           </div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">{data.organization_name}</h1>
+          <h1 className="text-2xl font-bold text-slate-100 tracking-tight">{data.organization_name}</h1>
           <p className="text-xs text-slate-400 mt-1">Foundation overview and active projects summary</p>
         </div>
         <div className="flex items-center gap-3">
@@ -69,7 +69,7 @@ export const DashboardPage: React.FC = () => {
         <Card className="flex items-center justify-between">
           <div>
             <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Total Projects</span>
-            <div className="text-3xl font-extrabold text-white mt-1">{data.stats.projects_count}</div>
+            <div className="text-3xl font-extrabold text-slate-100 mt-1">{data.stats.projects_count}</div>
           </div>
           <div className="p-3 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-400">
             <FolderKanban className="w-6 h-6" />
@@ -79,7 +79,7 @@ export const DashboardPage: React.FC = () => {
         <Card className="flex items-center justify-between">
           <div>
             <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Total Teams</span>
-            <div className="text-3xl font-extrabold text-white mt-1">{data.stats.teams_count}</div>
+            <div className="text-3xl font-extrabold text-slate-100 mt-1">{data.stats.teams_count}</div>
           </div>
           <div className="p-3 bg-violet-500/10 border border-violet-500/20 rounded-xl text-violet-400">
             <Users className="w-6 h-6" />
@@ -89,7 +89,7 @@ export const DashboardPage: React.FC = () => {
         <Card className="flex items-center justify-between">
           <div>
             <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Organization Members</span>
-            <div className="text-3xl font-extrabold text-white mt-1">{data.stats.members_count}</div>
+            <div className="text-3xl font-extrabold text-slate-100 mt-1">{data.stats.members_count}</div>
           </div>
           <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-400">
             <Building2 className="w-6 h-6" />

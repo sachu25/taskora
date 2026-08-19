@@ -57,11 +57,8 @@ export const RegisterPage: React.FC = () => {
     <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4">
       <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
         <div className="flex flex-col items-center mb-6 text-center">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-bold text-2xl text-white shadow-lg shadow-indigo-600/30 mb-3">
-            T
-          </div>
-          <h1 className="text-2xl font-bold text-slate-100">Get Started with Taskora</h1>
-          <p className="text-sm text-slate-400 mt-1">Create your user account & workspace</p>
+          <img src="/taskora-logo-dark.png" alt="Taskora Logo" className="h-12 mb-3 object-contain" />
+          <p className="text-sm text-slate-400">Create your user account & workspace</p>
         </div>
 
         {errors.general && (

@@ -40,18 +40,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ onCloseMobile }) => {
     <aside className="w-64 bg-slate-900 border-r border-slate-800 flex flex-col h-full shrink-0 select-none transition-colors duration-200">
       {/* Brand & Organization Selector */}
       <div className="p-4 border-b border-slate-800 relative">
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-600/30">
-            T
-          </div>
-          <div>
-            <span className="font-bold text-base tracking-tight text-white block leading-none">
-              Taskora
-            </span>
-            <span className="text-[10px] uppercase font-semibold tracking-wider text-indigo-400">
-              Platform
-            </span>
-          </div>
+        <div className="flex items-center mb-3 py-1">
+          <img
+            src={theme === 'light' ? '/taskora-logo-light.png' : '/taskora-logo-dark.png'}
+            alt="Taskora Logo"
+            className="h-8 w-auto object-contain"
+          />
         </div>
 
         {/* Organization Switcher */}
