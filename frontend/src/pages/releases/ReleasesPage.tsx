@@ -339,12 +339,12 @@ export const ReleasesPage: React.FC = () => {
                 {releases.map((release) => (
                   <tr key={release.id} className="hover:bg-slate-800/40 transition-colors">
                     <td className="py-3.5 px-4 font-mono font-bold text-indigo-400">
-                      <Link to={`/projects/${projectId}/releases/${release.id}`} className="hover:underline">
+                      <Link to={`/projects/${projectId}/releases/${release.version || release.id}`} className="hover:underline">
                         {release.version}
                       </Link>
                     </td>
                     <td className="py-3.5 px-4 font-semibold text-slate-100">
-                      <Link to={`/projects/${projectId}/releases/${release.id}`} className="hover:text-indigo-400 transition-colors">
+                      <Link to={`/projects/${projectId}/releases/${release.version || release.id}`} className="hover:text-indigo-400 transition-colors">
                         {release.name}
                       </Link>
                     </td>
@@ -370,7 +370,7 @@ export const ReleasesPage: React.FC = () => {
                     </td>
                     <td className="py-3.5 px-4 text-right">
                       <div className="flex items-center justify-end gap-2">
-                        <Link to={`/projects/${projectId}/releases/${release.id}`}>
+                        <Link to={`/projects/${projectId}/releases/${release.version || release.id}`}>
                           <Button size="sm" variant="outline">
                             Details
                           </Button>
@@ -399,7 +399,7 @@ export const ReleasesPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <Link to={`/projects/${projectId}/releases/${release.id}`} className="text-sm font-bold text-slate-100 hover:text-indigo-400 block">
+                  <Link to={`/projects/${projectId}/releases/${release.version || release.id}`} className="text-sm font-bold text-slate-100 hover:text-indigo-400 block">
                     {release.name}
                   </Link>
                   {release.description && (
@@ -423,7 +423,7 @@ export const ReleasesPage: React.FC = () => {
                     <strong className="text-slate-200">{release.issues_count ?? 0}</strong> Issues
                   </span>
                   <div className="flex items-center gap-2">
-                    <Link to={`/projects/${projectId}/releases/${release.id}`}>
+                    <Link to={`/projects/${projectId}/releases/${release.version || release.id}`}>
                       <Button size="sm" variant="outline">
                         View
                       </Button>

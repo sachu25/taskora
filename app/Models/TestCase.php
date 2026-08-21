@@ -77,4 +77,23 @@ class TestCase extends Model
     {
         return $this->hasMany(TestRunCase::class, 'test_case_id');
     }
+
+    /**
+     * Retrieve the model for a bound route value (supports ULID id, TC Key like TC-WEB-001, or case_number).
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where(function ($query) use ($value) {
+            $query->where('id', $value);
+
+            if (str_contains($value, 'TC-')) {
+                $num = (int) preg_replace('/[^0-9]/', '', $value);
+                if ($num > 0) {
+                    $query->orWhere('case_number', $num);
+                }
+            } elseif (is_numeric($value)) {
+                $query->orWhere('case_number', (int) $value);
+            }
+        })->firstOrFail();
+    }
 }

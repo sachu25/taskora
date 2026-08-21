@@ -214,13 +214,13 @@ export const TestCasesPage: React.FC = () => {
                 {cases.map((tc: TestCase) => (
                   <tr key={tc.id} className="hover:bg-slate-900/50 transition-colors group">
                     <td className="p-4 font-mono font-bold text-indigo-400 whitespace-nowrap">
-                      <Link to={`/projects/${projectId}/test-cases/${tc.id}`} className="hover:underline">
+                      <Link to={`/projects/${projectId}/test-cases/${tc.key || tc.id}`} className="hover:underline">
                         {tc.key}
                       </Link>
                     </td>
 
                     <td className="p-4 font-medium text-slate-200">
-                      <Link to={`/projects/${projectId}/test-cases/${tc.id}`} className="hover:text-indigo-400 transition-colors">
+                      <Link to={`/projects/${projectId}/test-cases/${tc.key || tc.id}`} className="hover:text-indigo-400 transition-colors">
                         {tc.title}
                       </Link>
                     </td>

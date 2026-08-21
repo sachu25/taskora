@@ -47,4 +47,15 @@ class TestSuite extends Model
     {
         return $this->hasMany(TestCase::class, 'suite_id');
     }
+
+    /**
+     * Retrieve the model for a bound route value (supports ULID id or Test Suite Name).
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where(function ($query) use ($value) {
+            $query->where('id', $value)
+                ->orWhere('name', $value);
+        })->firstOrFail();
+    }
 }

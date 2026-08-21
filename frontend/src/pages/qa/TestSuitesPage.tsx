@@ -140,7 +140,7 @@ export const TestSuitesPage: React.FC = () => {
               <div className="space-y-2">
                 <div className="flex items-start justify-between gap-3">
                   <Link
-                    to={`/projects/${projectId}/test-suites/${suite.id}`}
+                    to={`/projects/${projectId}/test-suites/${suite.name || suite.id}`}
                     className="text-base font-bold text-slate-100 hover:text-indigo-400 transition-colors line-clamp-1"
                   >
                     {suite.name}
@@ -155,7 +155,7 @@ export const TestSuitesPage: React.FC = () => {
               <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
                 <span className="text-slate-500">By {suite.creator?.name || 'User'}</span>
                 <div className="flex items-center gap-2">
-                  <Link to={`/projects/${projectId}/test-suites/${suite.id}`}>
+                  <Link to={`/projects/${projectId}/test-suites/${suite.name || suite.id}`}>
                     <Button size="sm" variant="ghost" icon={<FolderOpen className="w-3.5 h-3.5" />}>
                       Open
                     </Button>

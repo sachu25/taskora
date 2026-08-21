@@ -84,4 +84,16 @@ class Release extends Model
     {
         return $this->status === 'cancelled';
     }
+
+    /**
+     * Retrieve the model for a bound route value (supports ULID id, version e.g. v1.0.0, or name).
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where(function ($query) use ($value) {
+            $query->where('id', $value)
+                ->orWhere('version', $value)
+                ->orWhere('name', $value);
+        })->firstOrFail();
+    }
 }
