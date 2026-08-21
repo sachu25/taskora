@@ -93,4 +93,16 @@ class Project extends Model
     {
         return $this->hasMany(Notification::class);
     }
+
+    /**
+     * Retrieve the model for a bound route value (supports ULID id, uppercase Key, or lowercase Slug).
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where(function ($query) use ($value) {
+            $query->where('id', $value)
+                ->orWhere('key', strtoupper($value))
+                ->orWhere('slug', strtolower($value));
+        })->firstOrFail();
+    }
 }

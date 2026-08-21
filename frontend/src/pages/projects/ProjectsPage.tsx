@@ -133,7 +133,7 @@ export const ProjectsPage: React.FC = () => {
                   <span className="text-[10px] text-slate-400 capitalize">{project.visibility}</span>
                 </div>
 
-                <Link to={`/projects/${project.id}`} className="group">
+                <Link to={`/projects/${project.key || project.id}`} className="group">
                   <h3 className="text-base font-semibold text-slate-100 group-hover:text-indigo-400 transition-colors line-clamp-1">
                     {project.name}
                   </h3>
@@ -154,7 +154,7 @@ export const ProjectsPage: React.FC = () => {
                     <span>Target: {project.target_date}</span>
                   </div>
                 )}
-                <Link to={`/projects/${project.id}`} className="text-indigo-400 hover:text-indigo-300 font-medium flex items-center gap-1">
+                <Link to={`/projects/${project.key || project.id}`} className="text-indigo-400 hover:text-indigo-300 font-medium flex items-center gap-1">
                   <Eye className="w-3.5 h-3.5" /> Details
                 </Link>
               </div>

@@ -117,7 +117,7 @@ export const DashboardPage: React.FC = () => {
                     {project.key}
                   </div>
                   <div>
-                    <Link to={`/projects/${project.id}`} className="text-sm font-semibold text-slate-100 hover:text-indigo-400">
+                    <Link to={`/projects/${project.key || project.id}`} className="text-sm font-semibold text-slate-100 hover:text-indigo-400">
                       {project.name}
                     </Link>
                     <div className="text-xs text-slate-400 truncate max-w-md">{project.description || 'No description provided.'}</div>
