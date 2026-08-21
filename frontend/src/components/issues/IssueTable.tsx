@@ -57,13 +57,13 @@ export const IssueTable: React.FC<Props> = ({ issues, projectId, isLoading }) =>
             {issues.map((issue) => (
               <tr key={issue.id} className="hover:bg-slate-800/40 transition-colors group">
                 <td className="px-4 py-3.5 font-mono text-xs font-bold text-indigo-400 group-hover:text-indigo-300">
-                  <Link to={`/projects/${projectId}/issues/${issue.id}`} className="hover:underline">
+                  <Link to={`/projects/${projectId}/issues/${issue.key || issue.id}`} className="hover:underline">
                     {issue.key}
                   </Link>
                 </td>
                 <td className="px-4 py-3.5 max-w-md">
                   <Link
-                    to={`/projects/${projectId}/issues/${issue.id}`}
+                    to={`/projects/${projectId}/issues/${issue.key || issue.id}`}
                     className="font-medium text-slate-100 hover:text-indigo-300 transition-colors line-clamp-1 block"
                   >
                     {issue.title}

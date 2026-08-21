@@ -59,7 +59,7 @@ export const IssuesPage: React.FC = () => {
           {projects.map((project) => (
             <Link
               key={project.id}
-              to={`/projects/${project.id}/issues`}
+              to={`/projects/${project.key || project.id}/issues`}
               className="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 hover:bg-slate-850/80 transition-all group flex flex-col justify-between"
             >
               <div>

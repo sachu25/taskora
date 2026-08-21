@@ -150,31 +150,31 @@ export const ProjectDetailsPage: React.FC = () => {
         </button>
 
         <Link
-          to={`/projects/${id}/sprints`}
+          to={`/projects/${project?.key || id}/sprints`}
           className="py-2 text-slate-400 hover:text-indigo-400 flex items-center gap-1.5 transition-colors"
         >
           <span>Sprints</span>
         </Link>
         <Link
-          to={`/projects/${id}/backlog`}
+          to={`/projects/${project?.key || id}/backlog`}
           className="py-2 text-slate-400 hover:text-indigo-400 flex items-center gap-1.5 transition-colors"
         >
           <span>Backlog</span>
         </Link>
         <Link
-          to={`/projects/${id}/sprint-planning`}
+          to={`/projects/${project?.key || id}/sprint-planning`}
           className="py-2 text-slate-400 hover:text-indigo-400 flex items-center gap-1.5 transition-colors"
         >
           <span>Sprint Planning</span>
         </Link>
         <Link
-          to={`/projects/${id}/qa`}
+          to={`/projects/${project?.key || id}/qa`}
           className="py-2 text-slate-400 hover:text-indigo-400 flex items-center gap-1.5 transition-colors"
         >
           <span>QA & Testing</span>
         </Link>
         <Link
-          to={`/projects/${id}/releases`}
+          to={`/projects/${project?.key || id}/releases`}
           className="py-2 text-slate-400 hover:text-indigo-400 flex items-center gap-1.5 transition-colors"
         >
           <span>Releases</span>

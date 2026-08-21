@@ -129,4 +129,26 @@ class Issue extends Model
         return $this->belongsToMany(Release::class, 'release_issues')
             ->withPivot(['id', 'added_by', 'created_at']);
     }
+
+    /**
+     * Retrieve the model for a bound route value (supports ULID id, Issue Key like WEB-1, or issue_number).
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where(function ($query) use ($value) {
+            $query->where('id', $value);
+
+            if (str_contains($value, '-')) {
+                [$projKey, $num] = explode('-', $value, 2);
+                if (is_numeric($num)) {
+                    $query->orWhere(function ($q) use ($projKey, $num) {
+                        $q->where('issue_number', (int) $num)
+                          ->whereHas('project', fn ($pq) => $pq->where('key', strtoupper($projKey)));
+                    });
+                }
+            } elseif (is_numeric($value)) {
+                $query->orWhere('issue_number', (int) $value);
+            }
+        })->firstOrFail();
+    }
 }
